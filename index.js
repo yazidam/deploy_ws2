@@ -1,5 +1,6 @@
 const express = require("express");
 const User = require("./models/User");
+const Prooduct = require("./models/Product");
 
 const app = express();
 
@@ -12,6 +13,11 @@ const port = 5500;
 app.get("/all", async (req, res) => {
   const users = await User.find();
   res.json(users);
+});
+
+app.get("/allProduct", async (req, res) => {
+  const products = await Prooduct.find();
+  res.json(products);
 });
 
 app.listen(port, (err) => {
